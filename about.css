@@ -1,0 +1,477 @@
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+/* --- About Hero --- */
+.about-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-hero-img {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0A2416 0%, #1B4332 50%, #2D6A4F 100%);
+  z-index: 0;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10,36,22,0.90) 0%,
+    rgba(27,67,50,0.78) 55%,
+    rgba(10,36,22,0.60) 100%
+  );
+  z-index: 1;
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding-top: 100px;
+  padding-bottom: 72px;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 56px;
+  align-items: center;
+}
+
+.about-hero-text { color: var(--white); }
+
+.about-hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(6px);
+}
+
+.about-hero-title {
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.about-hero-lead {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  opacity: 0.85;
+  max-width: 520px;
+}
+
+/* --- Map Card --- */
+.about-map-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.about-map-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.about-map-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.8);
+}
+
+.about-map-visual { padding: 8px 16px; }
+.about-map-visual svg { width: 100%; height: auto; }
+
+.about-map-info {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.about-map-stat {
+  flex: 1;
+  padding: 14px 20px;
+  text-align: center;
+}
+
+.about-map-stat strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.about-map-stat span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.about-map-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* --- Mission & Vision --- */
+.mission-vision { background: var(--white); padding: 96px 0; }
+
+.mv-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.mv-card {
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mv-card.mission {
+  background: linear-gradient(145deg, #F0FFF4, #DCFCE7);
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.mv-card.vision {
+  background: linear-gradient(145deg, #EFF6FF, #DBEAFE);
+  border: 1px solid rgba(59,130,246,0.2);
+}
+
+.mv-card-icon-wrap {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+
+.mission-icon { background: rgba(45,106,79,0.12); color: var(--green-dark); }
+.vision-icon  { background: rgba(59,130,246,0.12); color: #1D4ED8; }
+
+.mv-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.mission .mv-card-title { color: var(--green-dark); }
+.vision .mv-card-title  { color: #1E40AF; }
+
+.mv-card-text {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin-bottom: 24px;
+}
+
+.mv-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+}
+
+.mv-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.mv-list-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+/* --- 4 Pillars --- */
+.pillars { background: var(--gray-light); padding: 96px 0; }
+
+.pillars-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.pillars-header .section-lead { margin: 0 auto; }
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.pillar-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.pillar-number {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--green-mid);
+  background: rgba(45,106,79,0.08);
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.pillar-icon-wrap {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, rgba(45,106,79,0.1), rgba(82,183,136,0.08));
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  color: var(--green-mid);
+}
+
+.pillar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.pillar-sub {
+  font-size: 0.72rem;
+  color: var(--green-mid);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.pillar-desc {
+  font-size: 0.87rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  text-align: left;
+}
+
+/* --- Smart Goals --- */
+.smart-goals { background: var(--white); padding: 96px 0; }
+
+.goals-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.goals-header .section-lead { margin: 0 auto; }
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.goal-card {
+  background: var(--off-white);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 4px solid var(--green-light);
+  transition: all var(--transition);
+  gap: 16px;
+}
+
+.goal-card:last-child { border-top-color: var(--orange); }
+
+.goal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background: var(--white);
+}
+
+.goal-card-icon {
+  width: 60px; height: 60px;
+  background: var(--white);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm);
+  color: var(--green-mid);
+  flex-shrink: 0;
+}
+
+.goal-card:last-child .goal-card-icon { color: var(--orange); }
+
+.goal-card-body { display: flex; flex-direction: column; gap: 6px; }
+
+.goal-num {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--green-dark);
+  line-height: 1;
+}
+
+.goal-card:last-child .goal-num { color: var(--orange); }
+
+.goal-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  opacity: 0.7;
+}
+
+.goal-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* --- Beneficiaries --- */
+.beneficiaries { background: var(--off-white); padding: 96px 0; }
+
+.bene-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.bene-header .section-lead { margin: 0 auto; }
+
+.bene-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.bene-stats { display: flex; flex-direction: column; gap: 20px; }
+
+.bene-stat {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.bene-stat-icon {
+  font-size: 1.8rem;
+  width: 52px; height: 52px;
+  background: var(--gray-light);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.bene-stat-num {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--green-dark);
+  display: block;
+  line-height: 1;
+}
+
+.bene-stat-place {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--green-dark);
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.bene-stat-label {
+  font-size: 0.87rem;
+  color: var(--text-mid);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.bene-portraits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.portrait-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition);
+}
+
+.portrait-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.portrait-img {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.portrait-img.student { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); }
+.portrait-img.teacher { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); }
+
+.portrait-info  { padding: 16px; }
+.portrait-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+.portrait-desc  { font-size: 0.8rem; color: var(--text-mid); line-height: 1.4; }
+
+/* ============================================
+   RESPONSIVE — ABOUT
+   ============================================ */
+@media (max-width: 1024px) {
+  .about-hero-grid { grid-template-columns: 1fr; }
+  .about-map-card  { display: none; }
+  .pillars-grid    { grid-template-columns: repeat(2, 1fr); }
+  .goals-grid      { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .mv-grid   { grid-template-columns: 1fr; }
+  .bene-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .pillars-grid   { grid-template-columns: 1fr 1fr; }
+  .goals-grid     { grid-template-columns: 1fr 1fr; }
+  .bene-portraits { grid-template-columns: 1fr 1fr; }
+}

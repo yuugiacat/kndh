@@ -1,0 +1,59 @@
+/* ============================================
+   LAYOUT — CTA Section, Shared Responsive
+   ============================================ */
+
+/* --- Shared CTA Section (dùng chung mọi trang) --- */
+.cta-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--green-dark), #1A3D52);
+  color: var(--white);
+  text-align: center;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.cta-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10,36,22,0.88) 0%,
+    rgba(27,67,50,0.82) 50%,
+    rgba(26,61,82,0.88) 100%
+  );
+  z-index: 0;
+}
+
+.cta-section .container { position: relative; z-index: 1; }
+
+.cta-content { max-width: 700px; margin: 0 auto; }
+
+.cta-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.cta-text {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin-bottom: 40px;
+  line-height: 1.75;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  section { padding: 64px 0; }
+}
+
+@media (max-width: 480px) {
+  .cta-actions { flex-direction: column; align-items: center; }
+}

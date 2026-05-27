@@ -1,0 +1,132 @@
+/* ============================================
+   CONTRIBUTE PAGE
+   ============================================ */
+
+/* --- Contribute Hero --- */
+.contribute-hero {
+  background: linear-gradient(135deg, #1A2332, #1B4332);
+  color: var(--white);
+  padding: 140px 0 80px;
+  text-align: center;
+}
+
+.contribute-hero .section-title { color: var(--white); margin-bottom: 16px; }
+.contribute-hero .section-lead  { color: rgba(255,255,255,0.75); margin: 0 auto; }
+
+/* --- Ways to Contribute --- */
+.ways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.way-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--gray-mid);
+  transition: all var(--transition);
+}
+
+.way-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.way-card.personal   { border-top-color: var(--orange); }
+.way-card.business   { border-top-color: var(--green-mid); }
+.way-card.developer  { border-top-color: #7C3AED; }
+
+.way-icon  { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+.way-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+.way-desc  { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 20px; line-height: 1.6; }
+
+.way-list { display: flex; flex-direction: column; gap: 10px; }
+
+.way-list li {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  align-items: flex-start;
+}
+
+.way-list li::before {
+  content: '✓';
+  width: 20px; height: 20px;
+  background: rgba(45,106,79,0.1);
+  color: var(--green-mid);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* --- Donation Box --- */
+.donation-cta { background: var(--off-white); padding: 96px 0; }
+
+.donation-box {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-md);
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.donation-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+.donation-sub   { color: var(--text-mid); margin-bottom: 32px; }
+
+.donation-amounts {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.amount-btn {
+  padding: 10px 24px;
+  border: 2px solid var(--gray-mid);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  background: var(--white);
+  color: var(--text-dark);
+}
+
+.amount-btn:hover,
+.amount-btn.active {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: var(--white);
+}
+
+.bank-info {
+  background: var(--gray-light);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: left;
+  margin-top: 24px;
+}
+
+.bank-info p      { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 8px; }
+.bank-info strong { color: var(--text-dark); }
+
+/* ============================================
+   RESPONSIVE — CONTRIBUTE
+   ============================================ */
+@media (max-width: 1024px) {
+  .ways-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .ways-grid    { grid-template-columns: 1fr; }
+  .donation-box { padding: 32px 24px; }
+}
