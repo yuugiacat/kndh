@@ -1,25 +1,32 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dạy Em — Mang Ánh Sáng Số Lên Bản Cao</title>
-  <meta name="description" content="Dự án cộng đồng phi lợi nhuận trang bị 100 máy tính bảng và 8 bộ máy chiếu cho trường Tiểu học Tổng Cọt, Cao Bằng." />
+  <meta name="description"
+    content="Dự án cộng đồng phi lợi nhuận trang bị 100 máy tính bảng và 8 bộ máy chiếu cho trường Tiểu học Tổng Cọt, Cao Bằng." />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="components/header.css" />
   <link rel="stylesheet" href="components/footer.css" />
   <link rel="stylesheet" href="index.css" />
+  <script src="js/fallback.js"></script>
 </head>
+
 <body>
 
-   <!-- ===== VIDEO SECTION ===== -->
-  <section class="about-video-section">
-    <div class="container">
+  <!-- ===== VIDEO SECTION ===== -->
+  <section class="about-video-section" id="video-section">
+    <!-- Three.js dynamic mountain + hearts background -->
+    <canvas id="mountain-canvas" aria-hidden="true"></canvas>
+
+    <div class="avs-content container">
       <div class="about-video-header">
-        <span class="section-tag orange">Hình ảnh thực địa</span>
-        <h2 class="section-title fade-in">Câu Chuyện Từ Tổng Cọt</h2>
-        <p class="section-lead fade-in">Một chuyến đi, ngàn cảm xúc — những hình ảnh thực tế từ điểm trường vùng cao Cao Bằng.</p>
+        <h2 class="section-title fade-in">DẠY EM - MỘT HÀNH TRÌNH VẠN CẢM XÚC</h2>
+        <p class="section-lead fade-in">Dự án thiện nguyện của nhóm sinh viên ngành Công nghệ giáo dục - Khoa Khoa học
+          và Công nghệ giáo dục - Đại học Bách Khoa Hà Nội </p>
       </div>
       <div class="about-video-wrap fade-in">
         <video controls preload="metadata">
@@ -27,12 +34,12 @@
           Trình duyệt của bạn không hỗ trợ video HTML5.
         </video>
         <div class="about-video-caption">
-          <span>📍 Ghi hình tại xã Tổng Cọt, huyện Hà Quảng, tỉnh Cao Bằng</span>
-          <a href="contribute.html" class="btn btn-primary">❤️ Chung sức cùng dự án</a>
+          <span>📍 Điểm trường Tiểu học Tổng Cọt, xã Tổng Cọt, huyện Hà Quảng, tỉnh Cao Bằng</span>
+          <a href="contribute.html" class="btn btn-primary">Chung sức cùng dự án</a>
         </div>
       </div>
     </div>
-  </section>  
+  </section>
   <div id="site-header"></div>
 
   <!-- ===== HERO SECTION ===== -->
@@ -44,11 +51,15 @@
     <!-- Gradient overlay (hiển thị khi không có video) -->
     <div class="hero-overlay"></div>
 
+    <!-- Book + light canvas (scroll-driven) -->
+    <canvas id="hero-book-canvas" aria-hidden="true"></canvas>
+
     <div class="hero-content">
       <p class="hero-tagline fade-in">DỰ ÁN CỘNG ĐỒNG - VÌ TƯƠNG LAI SỐ VÙNG CAO</p>
       <h1 class="hero-title fade-in delay-1">MANG ÁNH SÁNG SỐ<br>LÊN BẢN CAO</h1>
       <p class="hero-subtitle fade-in delay-2">
-        Cùng nhau trang bị 100 máy tính bảng, 8 bộ máy chiếu và trao truyền kỹ năng số cho thầy trò điểm trường Tiểu học Tổng Cọt, tỉnh Cao Bằng.
+        Cùng nhau trang bị 100 máy tính bảng, 8 bộ máy chiếu và trao truyền kỹ năng số cho thầy trò điểm trường Tiểu học
+        Tổng Cọt, tỉnh Cao Bằng.
       </p>
       <div class="hero-actions fade-in delay-3">
         <a href="contribute.html" class="btn btn-primary">Chung sức cùng chúng tôi</a>
@@ -58,84 +69,30 @@
   </section>
 
 
-  <!-- ===== PROBLEM & SOLUTION ===== -->
+  <!-- ===== PROBLEM & SOLUTION (3D Mountain Car) ===== -->
   <section class="problem-solution" id="problem-solution">
-    <div class="ps-split">
 
-      <!-- Cột trái: Hình ảnh Before / After -->
-      <div class="ps-visual fade-in-left">
-        <div class="ps-before-after">
-          <div class="ps-panel ps-before">
-            <div class="ps-slider">
-              <!-- Slide 1: card thiết kế gốc -->
-              <div class="ps-slide ps-slide-card active">
-                <div class="ps-panel-icon">🏚️</div>
-                <div class="ps-panel-title">Lớp học<br>truyền thống</div>
-                <ul class="ps-panel-list">
-                  <li>Bảng phấn, sách giấy</li>
-                  <li>Không có Internet</li>
-                  <li>Thiếu thiết bị số</li>
-                </ul>
-              </div>
-              <!-- Slide 2+: ảnh thực địa -->
-              <img src="assets/images/images.jpg"     class="ps-slide" alt="Lớp học truyền thống">
-              <img src="assets/images/images (1).jpg" class="ps-slide" alt="Lớp học truyền thống">
-              <button class="ps-arrow ps-prev" aria-label="Ảnh trước">&#8249;</button>
-              <button class="ps-arrow ps-next" aria-label="Ảnh sau">&#8250;</button>
-              <span class="ps-label">Trước</span>
-              <div class="ps-dots">
-                <span class="ps-dot active"></span>
-                <span class="ps-dot"></span>
-                <span class="ps-dot"></span>
-              </div>
-            </div>
-          </div>
-          <div class="ps-panel ps-after">
-            <div class="ps-slider">
-              <!-- Slide 1: card thiết kế gốc -->
-              <div class="ps-slide ps-slide-card active">
-                <div class="ps-panel-icon">💻</div>
-                <div class="ps-panel-title">Lớp học<br>công nghệ</div>
-                <ul class="ps-panel-list">
-                  <li>100 máy tính bảng</li>
-                  <li>Học liệu Offline</li>
-                  <li>Giáo viên được đào tạo</li>
-                </ul>
-              </div>
-              <!-- Slide 2+: ảnh thực địa -->
-              <img src="assets/images/images (6).jpg"                    class="ps-slide" alt="Lớp học công nghệ">
-              <img src="assets/images/istockphoto-1586911323-612x612.jpg" class="ps-slide" alt="Lớp học công nghệ">
-              <button class="ps-arrow ps-prev" aria-label="Ảnh trước">&#8249;</button>
-              <button class="ps-arrow ps-next" aria-label="Ảnh sau">&#8250;</button>
-              <span class="ps-label ps-label-after">Sau</span>
-              <div class="ps-dots">
-                <span class="ps-dot active"></span>
-                <span class="ps-dot"></span>
-                <span class="ps-dot"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cột phải: Nội dung văn bản -->
-      <div class="ps-content fade-in-right">
-        <span class="section-tag">Vấn đề & Giải pháp</span>
-        <h2 class="section-title">Khoảng cách số —<br>Thách thức của giáo dục vùng cao</h2>
+    <!-- ── Top: Text content (former right column) ── -->
+    <div class="ps-text-top">
+      <div class="ps-text-inner">
+        <span class="section-tag">Vấn đề &amp; Giải pháp</span>
+        <h2 class="section-title">Khoảng cách số -<br>Thách thức của giáo dục vùng cao</h2>
         <p class="ps-lead">
-          Học sinh tại Tiểu học Tổng Cọt hiện đang thiếu thiết bị học tập và kết nối internet, khiến các em gặp bất lợi lớn trong việc tiếp cận kho tàng tri thức số so với học sinh thành thị.
+          Học sinh tại Tiểu học Tổng Cọt hiện đang thiếu thiết bị học tập và kết nối internet, khiến các em gặp bất lợi
+          lớn trong việc tiếp cận kho tàng tri thức số so với học sinh thành thị.
         </p>
-
         <div class="ps-solutions-box">
           <div class="ps-solutions-title">Giải pháp từ "Dạy Em"</div>
           <div class="ps-solutions">
             <div class="ps-solution-item">
               <span class="ps-check">✔</span>
-              <span><strong>Cung cấp thiết bị</strong> — Sử dụng mô hình Hybrid: kết hợp thiết bị mới, cũ và đối tác tài trợ.</span>
+              <span><strong>Cung cấp thiết bị</strong> — Sử dụng mô hình Hybrid: kết hợp thiết bị mới, cũ và đối tác tài
+                trợ.</span>
             </div>
             <div class="ps-solution-item">
               <span class="ps-check">✔</span>
-              <span><strong>Cài đặt hệ thống học liệu Offline</strong> — Đảm bảo việc học ngay cả khi không có Internet.</span>
+              <span><strong>Tài liệu hướng dẫn online và offline</strong> — Đảm bảo việc học ngay cả khi không có
+                Internet.</span>
             </div>
             <div class="ps-solution-item">
               <span class="ps-check">✔</span>
@@ -144,8 +101,39 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- ── Bottom: 2-column 3D + image ── -->
+    <div class="ps-mountain-wrap">
+
+      <!-- Cột trái: Canvas 3D -->
+      <div class="ps-col-canvas">
+        <div class="mc-hint">
+          <span class="mc-hint-icon">🚗</span>
+          <span>Kéo chiếc xe để khám phá hành trình thay đổi</span>
+          <span class="mc-hint-icon">⛰️</span>
+        </div>
+        <canvas id="mountain-car-canvas" aria-label="Mô phỏng 3D xe trên núi tương tác"></canvas>
+        <div class="mc-legend">
+
+        </div>
+      </div>
+
+      <!-- Cột phải: Ảnh thay đổi theo xe -->
+      <div class="ps-col-image">
+        <div id="mc-status-label" class="mc-label mc-label--present">Hiện tại</div>
+        <div class="mc-image-frame">
+          <img id="mc-display-img" src="assets/images/index_present.jpg" alt="Hiện tại" class="mc-display-img" />
+          <div class="mc-image-overlay"></div>
+        </div>
+        <p class="mc-image-caption">
+          <span class="mc-caption-present">Lớp học trước khi có dự án "Dạy Em"</span>
+          <span class="mc-caption-future">Tương lai của giáo dục vùng cao</span>
+        </p>
+      </div>
 
     </div>
+
   </section>
 
   <!-- ===== KEY METRICS ===== -->
@@ -161,7 +149,8 @@
         <div class="metric-card fade-in delay-1">
           <span class="metric-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/>
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <line x1="12" y1="18" x2="12" y2="18.01" />
             </svg>
           </span>
           <span class="metric-number">
@@ -173,7 +162,8 @@
         <div class="metric-card fade-in delay-2">
           <span class="metric-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M2 8h20M2 8v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8M2 8l2-4h16l2 4"/><circle cx="12" cy="13" r="3"/>
+              <path d="M2 8h20M2 8v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8M2 8l2-4h16l2 4" />
+              <circle cx="12" cy="13" r="3" />
             </svg>
           </span>
           <span class="metric-number">
@@ -185,8 +175,9 @@
         <div class="metric-card fade-in delay-3">
           <span class="metric-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
           </span>
           <span class="metric-number">
@@ -198,14 +189,16 @@
         <div class="metric-card fade-in delay-4">
           <span class="metric-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
           </span>
           <span class="metric-number">
             <span class="counter" data-target="6">0</span>
           </span>
-          <span class="metric-label">Tháng triển khai dự án<br><small>1/2026 – 6/2026</small></span>
+          <span class="metric-label">Tháng triển khai dự án<br><small>1/2027 – 6/2027</small></span>
         </div>
       </div>
     </div>
@@ -217,7 +210,8 @@
       <div class="timeline-header">
         <span class="section-tag">Lộ trình</span>
         <h2 class="section-title fade-in">Hành trình lan tỏa tri thức</h2>
-        <p class="section-lead fade-in" style="margin: 0 auto;">Từ ý tưởng đến thực địa — mỗi bước đều có kế hoạch rõ ràng và minh bạch.</p>
+        <p class="section-lead fade-in" style="margin: 0 auto;">Từ ý tưởng đến thực địa — mỗi bước đều có kế hoạch rõ
+          ràng và minh bạch.</p>
       </div>
 
       <!-- Horizontal timeline bar -->
@@ -236,33 +230,37 @@
         <div class="timeline-card fade-in delay-1">
           <div class="tcard-num">01</div>
           <div class="tcard-icon">🚀</div>
-          <div class="tcard-date">Tháng 1 – 2/2026</div>
+          <div class="tcard-date">Tháng 1 – 2/2027</div>
           <div class="tcard-title">Truyền thông, Gây quỹ & Xây dựng học liệu</div>
-          <div class="tcard-desc">Khởi động chiến dịch truyền thông, huy động cộng đồng và xây dựng kho học liệu offline cho học sinh tiểu học.</div>
+          <div class="tcard-desc">Khởi động chiến dịch truyền thông, huy động cộng đồng và xây dựng kho học liệu offline
+            cho học sinh tiểu học.</div>
         </div>
 
         <div class="timeline-card fade-in delay-2">
           <div class="tcard-num">02</div>
           <div class="tcard-icon">🔧</div>
-          <div class="tcard-date">Tháng 3/2026</div>
+          <div class="tcard-date">Tháng 3/2027</div>
           <div class="tcard-title">Hậu cần & Chuẩn bị kỹ thuật, số hóa thiết bị</div>
-          <div class="tcard-desc">Chuẩn bị thiết bị, cài đặt học liệu và kiểm tra kỹ thuật toàn bộ trước khi vận chuyển lên thực địa.</div>
+          <div class="tcard-desc">Chuẩn bị thiết bị, cài đặt học liệu và kiểm tra kỹ thuật toàn bộ trước khi vận chuyển
+            lên thực địa.</div>
         </div>
 
         <div class="timeline-card fade-in delay-3">
           <div class="tcard-num">03</div>
           <div class="tcard-icon">🚚</div>
-          <div class="tcard-date">Tháng 4 – 5/2026</div>
+          <div class="tcard-date">Tháng 4 – 5/2027</div>
           <div class="tcard-title">Vận chuyển, lắp đặt & Chuyển giao thực địa</div>
-          <div class="tcard-desc">Vận chuyển lên Cao Bằng, lắp đặt máy chiếu, tập huấn thầy cô và trao máy tính bảng cho các em học sinh.</div>
+          <div class="tcard-desc">Vận chuyển lên Cao Bằng, lắp đặt máy chiếu, tập huấn thầy cô và trao máy tính bảng cho
+            các em học sinh.</div>
         </div>
 
         <div class="timeline-card fade-in delay-4">
           <div class="tcard-num">04</div>
           <div class="tcard-icon">🎉</div>
-          <div class="tcard-date">Tháng 6/2026</div>
+          <div class="tcard-date">Tháng 6/2027</div>
           <div class="tcard-title">Nghiệm thu, Tổng kết & Lan tỏa</div>
-          <div class="tcard-desc">Nghiệm thu kết quả, ghi lại câu chuyện thành công, công bố báo cáo minh bạch và lên kế hoạch hỗ trợ dài hạn.</div>
+          <div class="tcard-desc">Nghiệm thu kết quả, ghi lại câu chuyện thành công, công bố báo cáo minh bạch và lên kế
+            hoạch hỗ trợ dài hạn.</div>
         </div>
       </div>
 
@@ -279,11 +277,12 @@
       <div class="cta-content">
         <h2 class="cta-title fade-in">Bạn đã sẵn sàng cùng "Dạy Em"<br>viết tiếp ước mơ?</h2>
         <p class="cta-text fade-in">
-          Mọi đóng góp dù là thiết bị cũ, hiện kim, hay sự đồng hành từ các đối tác công nghệ đều là viên gạch quý giá xây dựng tương lai cho các em.
+          Mọi đóng góp dù là thiết bị cũ, hiện kim, hay sự đồng hành từ các đối tác công nghệ đều là viên gạch quý giá
+          xây dựng tương lai cho các em.
         </p>
         <div class="cta-actions fade-in">
-          <a href="contribute.html#donate" class="btn btn-primary">❤️ Quyên góp ngay</a>
-          <a href="contribute.html#partner" class="btn btn-white-outline">🤝 Trở thành đối tác</a>
+          <a href="contribute.html#donate" class="btn btn-primary">Quyên góp ngay</a>
+          <a href="contribute.html#partner" class="btn btn-white-outline">Trở thành đối tác</a>
         </div>
       </div>
     </div>
@@ -293,5 +292,9 @@
 
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/mountain-bg.js"></script>
+  <script src="js/hero-book.js"></script>
+  <script src="js/mountain-car.js"></script>
 </body>
+
 </html>
