@@ -107,8 +107,8 @@
             Hướng dẫn tích hợp thiết bị số vào bài giảng lớp 4, lớp 5 và quản lý lớp học hiệu quả.
           </p>
           <div class="doc-card-actions">
-            <a href="#" class="btn btn-primary">👁️ Xem trước Tài liệu</a>
-            <a href="#" class="btn btn-outline">📥 Tải tài liệu (.pdf)</a>
+            <a href="assets/doc/giaovien.pdf" class="btn btn-primary" data-preview="assets/doc/giaovien.pdf" data-title="Sổ tay tập huấn — Dành cho Giáo viên bản địa">👁️ Xem trước Tài liệu</a>
+            <a href="assets/doc/giaovien.pdf" class="btn btn-outline" download>📥 Tải tài liệu (.pdf)</a>
           </div>
         </div>
 
@@ -120,8 +120,8 @@
             Cẩm nang sư phạm và kỹ năng tương tác, hỗ trợ kỹ thuật tại điểm trường thực địa.
           </p>
           <div class="doc-card-actions">
-            <a href="#" class="btn btn-primary">👁️ Xem trước Tài liệu</a>
-            <a href="#" class="btn btn-outline">📥 Tải tài liệu (.pdf)</a>
+            <a href="assets/doc/tnv.pdf" class="btn btn-primary" data-preview="assets/doc/tnv.pdf" data-title="Cẩm nang Sư phạm Số — Dành cho Sinh viên / TNV">👁️ Xem trước Tài liệu</a>
+            <a href="assets/doc/tnv.pdf" class="btn btn-outline" download>📥 Tải tài liệu (.pdf)</a>
           </div>
         </div>
       </div>
@@ -197,9 +197,65 @@
     </div>
   </section>
 
+  <!-- ===== PDF PREVIEW MODAL ===== -->
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true" role="dialog">
+    <div class="pdf-modal-backdrop" data-close></div>
+    <div class="pdf-modal-content">
+      <div class="pdf-modal-header">
+        <h3 class="pdf-modal-title" id="pdfModalTitle">Xem trước tài liệu</h3>
+        <div class="pdf-modal-actions">
+          <a href="#" class="btn btn-primary" id="pdfModalDownload" download>📥 Tải xuống</a>
+          <button class="pdf-modal-close" data-close aria-label="Đóng">✕</button>
+        </div>
+      </div>
+      <div class="pdf-modal-body">
+        <iframe id="pdfModalFrame" src="" title="PDF preview"></iframe>
+      </div>
+    </div>
+  </div>
+
   <div id="site-footer"></div>
 
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const modal    = document.getElementById('pdfModal');
+      const frame    = document.getElementById('pdfModalFrame');
+      const titleEl  = document.getElementById('pdfModalTitle');
+      const dlBtn    = document.getElementById('pdfModalDownload');
+
+      function openModal(src, title) {
+        frame.src = src;
+        titleEl.textContent = title || 'Xem trước tài liệu';
+        dlBtn.href = src;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        frame.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-preview]').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          openModal(link.dataset.preview, link.dataset.title);
+        });
+      });
+
+      modal.querySelectorAll('[data-close]').forEach(el => {
+        el.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+    })();
+  </script>
 </body>
 </html>
